@@ -20,7 +20,9 @@ public class UsersDAO {
         logger.info(methodName + "called");
         UserInterface userInterface = null;
         if (userName != null) {
+        	System.out.println("Test DAO"+userName);
             userInterface = usersRepository.findByUserName(userName);
+            System.out.println("Test DAO Repo"+userInterface.getRole());
         }
         return userInterface;
     }
