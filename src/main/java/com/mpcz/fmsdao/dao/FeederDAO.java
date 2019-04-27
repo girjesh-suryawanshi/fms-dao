@@ -3,6 +3,7 @@ package com.mpcz.fmsdao.dao;
 import com.mpcz.fmsdao.repository.FeederRepository;
 import com.mpcz.fmsdao.utility.GlobalResources;
 import com.mpcz.fmsentity.bean.Feeder;
+import com.mpcz.fmsinterface.FeederInterface;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ public class FeederDAO {
     @Autowired
     FeederRepository feederRepository;
 
+
     public List<Feeder> getAll() {
         String methodName = "getAll()  :";
         logger.info(methodName + "called");
@@ -28,6 +30,13 @@ public class FeederDAO {
         String methodName = "deleteFeeder";
         logger.info(methodName + "called");
         feederRepository.deleteById(Id);
+    }
+
+    public FeederInterface insertFeeder(FeederInterface feederInterface) {
+        String methodName = "updateFeederInterface() :";
+        logger.info(methodName + "called");
+        feederRepository.save(feederInterface);
+        return feederInterface;
     }
 
 }
