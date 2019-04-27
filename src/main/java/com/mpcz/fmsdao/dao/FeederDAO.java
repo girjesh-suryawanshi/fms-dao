@@ -24,5 +24,10 @@ public class FeederDAO {
         return feeders;
     }
 
+    public void deleteByID(Long Id) {
+        String methodName = "deleteFeeder";
+        logger.info(methodName + "called");
+        feederRepository.deleteById(Id);
+    }
 
 }

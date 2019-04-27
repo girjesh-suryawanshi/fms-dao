@@ -24,4 +24,10 @@ public class SubstationViewDAO {
 
         return substation;
     }
+
+    public void deleteByID(Long Id) {
+        String methodName = "deleteSubstation";
+        logger.info(methodName + "called");
+        substationRepository.deleteById(Id);
+    }
 }
