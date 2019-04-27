@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface FeederRepository extends JpaRepository<Feeder, Long> {
 
     public FeederInterface save(FeederInterface feederInterface);
+
 }
