@@ -40,13 +40,24 @@ public class SubstationDAO {
     	return substationInterfaceDB;
     }
     
-    public List<? extends SubstationInterface> getAll(){
+    //public List<? extends SubstationInterface> getAll(){
 
-        List<? extends SubstationInterface>substationInterfaces =  substationRepository.findAll();
+    //    List<? extends SubstationInterface>substationInterfaces =  substationRepository.findAll();
 
-        return substationInterfaces;
-     } 
-   
-    
-   
+    //    return substationInterfaces;
+    // }
+
+    public List<Substation> getAll() {
+        String methodName = "getAll()  :";
+        logger.info(methodName + "called");
+        List<Substation> substation = substationRepository.findAll();
+
+        return substation;
+    }
+
+    public void deleteByID(Long Id) {
+        String methodName = "deleteSubstation";
+        logger.info(methodName + "called");
+        substationRepository.deleteById(Id);
+    }
 }
