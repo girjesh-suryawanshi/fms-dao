@@ -7,7 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FeederRepository extends JpaRepository<Feeder, Long> {
-
     public FeederInterface save(FeederInterface feederInterface);
-
 }
