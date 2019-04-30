@@ -1,6 +1,7 @@
 package com.mpcz.fmsdao.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,7 @@ public class SubstationDAO {
     
     public SubstationInterface save(Substation substationInterface)
     {
+    	logger.info("Substation DAO save():Called"); 
     	SubstationInterface substationInterfaceDB=null;
     	if(substationInterface!=null)
     	{
@@ -40,12 +42,28 @@ public class SubstationDAO {
     	return substationInterfaceDB;
     }
     
-    public List<? extends SubstationInterface> getAll(){
-
-        List<? extends SubstationInterface>substationInterfaces =  substationRepository.findAll();
+    public List<? extends SubstationInterface> getAll(String status){
+    	logger.info("Substation DAO getAll():Called"); 
+        List<? extends SubstationInterface>substationInterfaces =  substationRepository.findAllByStatus(status);
 
         return substationInterfaces;
-     } 
+     }
+
+	public SubstationInterface getSubstation(long id) {
+		String methodName = "getSubstation() ";
+        logger.info(methodName + "called");
+        SubstationInterface substation = null;
+       
+        	substation = substationRepository.findByStatusAndId("ENABLE", id);
+        	if(substation!=null)
+        	{
+        		 return substation;	
+        	}
+        	else
+        	{
+        		return null;
+        	}
+        } 
    
     
    

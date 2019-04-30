@@ -22,6 +22,7 @@ public class SubstationFeederDAO {
     
     public SubstationFeederInterface save(SubstationFeederInterface substationFeederInterface)
     {
+    	logger.info("Substation Feeder DAO save():Called"); 
     	SubstationFeeder substationFeeder = (SubstationFeeder) substationFeederInterface;
     	SubstationFeederInterface substationFeederInterfaceDB=null;
     	if(substationFeederInterface!=null)
@@ -32,7 +33,7 @@ public class SubstationFeederDAO {
     }
     
     public List<? extends SubstationFeederInterface> getAll(){
-
+    	logger.info("Substation Feeder DAO getAll():Called"); 
     	List<? extends SubstationFeederInterface>substationInterfaces = substationFeederRepository.findAll();
 
         return substationInterfaces;
@@ -40,13 +41,14 @@ public class SubstationFeederDAO {
    
   public List<? extends SubstationFeederInterface> getAllBySubstationId(Long substationId)
    {
+	  logger.info("Substation Feeder DAO getAllBySubstationId():Called"); 
 	   List<? extends SubstationFeederInterface>substationInterfaces =substationFeederRepository.findAllBysubstationId(substationId);
   
    return substationInterfaces;
    }
   
   public List<? extends SubstationFeederInterface>  saveAllSubstationFeeder(Iterable<SubstationFeeder> entities){
-	  
+	  logger.info("Substation Feeder DAO saveAllSubstationFeeder():Called");   
 	  List<? extends SubstationFeederInterface>substationInterfaces =substationFeederRepository.saveAll(entities);
 	  return substationInterfaces;
   }
