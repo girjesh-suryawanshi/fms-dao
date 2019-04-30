@@ -10,20 +10,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsersDAO {
 
-    private static Logger logger = GlobalResources.getLogger(UsersDAO.class);
+	private static Logger logger = GlobalResources.getLogger(UsersDAO.class);
 
-    @Autowired
-    UsersRepository usersRepository;
+	@Autowired
+	UsersRepository usersRepository;
 
-    public UserInterface getUser(String userName) {
-        String methodName = "getUser() ";
-        logger.info(methodName + "called");
-        UserInterface userInterface = null;
-        if (userName != null) {
-        	System.out.println("Test DAO"+userName);
-            userInterface = usersRepository.findByUserName(userName);
-            System.out.println("Test DAO Repo"+userInterface.getRole());
-        }
-        return userInterface;
-    }
+	public UserInterface getUser(String userName) {
+		String methodName = "getUser() ";
+		logger.info(methodName + "called");
+		UserInterface userInterface = null;
+		if (userName != null) {
+			System.out.println("Test DAO" + userName);
+			userInterface = usersRepository.findByUserName(userName);
+			System.out.println("Test DAO Repo" + userInterface.getRole());
+		}
+		return userInterface;
+	}
 }

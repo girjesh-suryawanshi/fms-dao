@@ -14,24 +14,21 @@ import com.mpcz.fmsinterface.ZoneInterface;
 
 @Service
 public class ZoneDAO {
-@Autowired
-ZoneRepository repository;
-private Logger logger = GlobalResources.getLogger(ZoneDAO.class);
-public List<? extends ZoneInterface> getAll(){
-	logger.info("Zone DAO getAll():Called"); 
-	return repository.findAll();
-}
+	@Autowired
+	ZoneRepository repository;
+	private Logger logger = GlobalResources.getLogger(ZoneDAO.class);
 
-public Optional<Zone> getZone(long id){
-	
-	logger.info("Zone DAO getZone():Called"); 
-	Optional<Zone> zoneInterface=null;
-	
-	zoneInterface=repository.findById(id);
-	if(zoneInterface.isPresent())
-	{
+	public List<? extends ZoneInterface> getAll() {
+		String methodName = "getAll() :";
+		logger.info(methodName + " Called");
+		return repository.findAll();
+	}
+
+	public Zone getZone(long id) {
+		String methodName = "getZone() :";
+		logger.info(methodName + " Called");
+		Zone zoneInterface = null;
+		zoneInterface = repository.findById(id).get();
 		return zoneInterface;
 	}
-	return zoneInterface;
-}
 }
